@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map_canvas {
+        width: 100%;
+        height: 400px;
+      }
+      #countries,#day,#special{
+        width:33.333333%;
+        height: 40px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw7aA-2u3gc85vVStn3eUfhJwFj2jjq80"></script>
+    <script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map_canvas');
+        var mapOptions = {
+          center: new google.maps.LatLng(44.5403, -78.5463),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+    <meta charset="utf-8">
+    <title>Todo</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
+    <script src="js/app.js"></script>
+    <script src="cordova.js"></script>
+  </head>
+  <body ng-app="todo">
+    <ion-side-menus>
+
+      <!-- Center content -->
+      <ion-side-menu-content>
+        <ion-header-bar class="bar-dark">
+          <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
+          <h1 class="title">Social Map</h1>
+        </ion-header-bar>
+        <ion-content>
+          <div id="map_canvas"></div>
+        </ion-content>
+      </ion-side-menu-content>
+
+      <ion-side-menu side="left">
+          <ion-header-bar class="bar-dark">
+            <h1 class="title">Setting</h1>
+          </ion-header-bar>
+          <!-- if you need scroll and click in menu: has-header="true" scroll="true" overflow-scroll="true" -->
+          <ion-content has-header="true">
+        
+          </ion-content>
+        </ion-side-menu>
+
+    </ion-side-menus>
+  </body>
+  <div class="bar bar-footer bar-balanced">
+
+              <label class="item item-input item-select" id="countries">
+                <select>
+                  <option selected>Singapore</option>
+                </select>   
+              </label>
+
+              <label class="item item-input item-select" id="day">
+                <select>
+                  <option selected>Sunday</option>
+                  <option >Monday</option>
+                  <option >Tuesday</option>
+                  <option >Wedday</option>
+                  <option >Thursday</option>
+                  <option >Friday</option>
+                  <option >Saturday</option>
+                </select>                
+              </label>
+
+              <label class="item item-input item-select" id="special">
+                <select>
+                  <option selected>Attitude Dance Studio</option>
+                  <option >Singapore Latin Extravaganza 2014</option>
+                  <option >JitterBug</option>
+                  <option >Union Square</option>
+                </select>                
+              </label>
+
+
+            </div>
+          
+            
+          </div>
+
+</html>
